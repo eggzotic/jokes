@@ -11,6 +11,12 @@ To run in debug mode in a browser:
 flutter run -d chrome
 ```
 
+## Live Site
+
+You can access this app live on "the internet" at:
+
+https://eggzotic.software/apps/jokes/
+
 To-do:
 
 - error popups
