@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jokes/event/event.dart';
 import 'package:jokes/state/app_state.dart';
+import 'package:jokes/widgets/about_ui.dart';
 import 'package:jokes/widgets/joke_list_ui.dart';
 import 'package:jokes/widgets/request_categories_ui.dart';
 import 'package:jokes/widgets/exclusions_ui.dart';
@@ -17,6 +18,16 @@ class JokePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Jokes'),
+        actions: [
+          TextButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (_) => const AboutUi(),
+                );
+              },
+              child: const Text('About')),
+        ],
       ),
       body: appState.isReady
           ? Column(

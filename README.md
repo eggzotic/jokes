@@ -13,11 +13,7 @@ flutter run -d chrome
 
 To-do:
 
-- About popup
-  - mention the Jokes API, app purpose, disclaimers!?
-  - GitHub repo source
-
-- error popup
+- error popups
   - when HTTP error status
   - when response JSON error property populated
   - special one if the too-many-requests code is received
