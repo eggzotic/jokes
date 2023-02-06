@@ -30,7 +30,6 @@ class JokeState {
   Future fetch() async {
     _isFetching = true;
     notify();
-    debugPrint('RLS fetch: ${request.endPoint}, ${request.queryParams}');
     try {
       final result = await _apiClient.get(
         request.endPoint,
