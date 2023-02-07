@@ -2,7 +2,12 @@ import 'package:jokes/model/flag.dart';
 
 class Flags {
   factory Flags() {
-    return Flags.fromFlags(flags: []);
+    return Flags.fromFlags(flags: [
+      Flag.explicit,
+      Flag.racist,
+      Flag.nsfw,
+      Flag.sexist,
+    ]);
   }
   Flags.fromBool({
     required bool nsfw,
