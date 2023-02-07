@@ -11,5 +11,6 @@ class Config {
   //
   final baseUrl = 'https://v2.jokeapi.dev/joke/';
   final relayoutWidth = 610.0;
-  final relayoutHeight = 400.0;
+  final relayoutHeight = 500.0;
+  final wideLayoutAspect = 1.75;
 }

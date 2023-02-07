@@ -10,22 +10,31 @@ class ScreenLayoutUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
-    final isWide = MediaQuery.of(context).size.aspectRatio > 2;
-    return isWide
-        ? Row(
-            children: [
-              SizedBox(
-                width: appState.config.relayoutWidth,
-                child: const RequestSectionUi(),
-              ),
-              const Expanded(child: JokeListUi())
-            ],
-          )
-        : const Column(
-            children: [
-              RequestSectionUi(),
-              Expanded(child: JokeListUi()),
-            ],
-          );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isWide = constraints.maxWidth / constraints.maxHeight >
+            appState.config.wideLayoutAspect;
+        final isSmall =
+            constraints.maxHeight < appState.config.relayoutHeight &&
+                constraints.maxWidth < appState.config.relayoutWidth;
+        if (isSmall) return const JokeListUi(controls: RequestSectionUi());
+        return isWide
+            ? Row(
+                children: [
+                  SizedBox(
+                    width: appState.config.relayoutWidth - 100,
+                    child: ListView(children: const [RequestSectionUi()]),
+                  ),
+                  const Expanded(child: JokeListUi())
+                ],
+              )
+            : const Column(
+                children: [
+                  RequestSectionUi(),
+                  Expanded(child: JokeListUi()),
+                ],
+              );
+      },
+    );
   }
 }

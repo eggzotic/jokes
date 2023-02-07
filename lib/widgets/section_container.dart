@@ -15,16 +15,17 @@ class SectionContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
-    final isNarrow =
-        MediaQuery.of(context).size.width <= appState.config.relayoutWidth;
-    if (isNarrow) {
-      return ExpansionTile(
-        key: PageStorageKey(ValueKey(title)),
-        title: Text(title),
-        children: [child],
-      );
-    } else {
-      return child;
-    }
+    return LayoutBuilder(builder: (context, constraints) {
+      final isNarrow = constraints.maxWidth <= appState.config.relayoutWidth;
+      if (isNarrow) {
+        return ExpansionTile(
+          key: PageStorageKey(ValueKey(title)),
+          title: Text(title),
+          children: [child],
+        );
+      } else {
+        return child;
+      }
+    });
   }
 }

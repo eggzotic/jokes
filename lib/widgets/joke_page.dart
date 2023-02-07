@@ -9,7 +9,8 @@ class JokePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('Media size: ${MediaQuery.of(context).size}');
+    debugPrint(
+        'Media size: ${MediaQuery.of(context).size}, Aspect: ${MediaQuery.of(context).size.aspectRatio}');
     final appState = Provider.of<AppState>(context);
     return Scaffold(
       appBar: AppBar(
