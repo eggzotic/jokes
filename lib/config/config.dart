@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Config {
-  final appName = 'Jokes Demo';
-  final appVersion = '1.0.0';
+  final appName = 'Jokes';
+  final appVersion = '1.2.0';
   final appIcon = Icons.tag_faces_outlined;
   final sourceRepo = 'https://github.com/eggzotic/jokes';
   final appAuthor = 'Richard Shepherd, 2023';
@@ -10,5 +10,6 @@ class Config {
       'A simple jokes app. Joke data is fetched from $baseUrl';
   //
   final baseUrl = 'https://v2.jokeapi.dev/joke/';
-  final relayoutWidth = 610;
+  final relayoutWidth = 610.0;
+  final relayoutHeight = 400.0;
 }
