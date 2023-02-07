@@ -10,4 +10,5 @@ class Config {
       'A simple jokes app. Joke data is fetched from $baseUrl';
   //
   final baseUrl = 'https://v2.jokeapi.dev/joke/';
+  final relayoutWidth = 610;
 }

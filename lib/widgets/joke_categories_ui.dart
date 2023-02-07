@@ -10,17 +10,16 @@ class JokeCategoriesUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Row(
+      title: Wrap(
+        runSpacing: 4.0,
+        alignment: WrapAlignment.center,
+        spacing: 4.0,
         children: Flag.values
             .map(
-              (f) => Expanded(
-                child: Card(
-                  child: CheckboxListTile(
-                    title: Text(f.label),
-                    value: joke.flags.isBlackListed(f),
-                    onChanged: null,
-                  ),
-                ),
+              (f) => FilterChip(
+                label: Text(f.label),
+                selected: joke.flags.isBlackListed(f),
+                onSelected: null,
               ),
             )
             .toList(),
