@@ -24,7 +24,4 @@ To-do:
   - when response JSON error property populated
   - special one if the too-many-requests code is received
 
-- Adaptive
-  - auto re-layout for screen-dimensions
-
 Richard Shepherd 2023
