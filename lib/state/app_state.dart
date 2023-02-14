@@ -7,10 +7,11 @@ import 'package:rest_api_client/options/logging_options.dart';
 import 'package:rest_api_client/options/rest_api_client_options.dart';
 
 class AppState with ChangeNotifier {
-  AppState() {
+  AppState({required this.isProd}) {
     _init();
   }
 
+  final bool isProd;
   late final RestApiClient _apiClient;
   final config = Config();
 
@@ -24,8 +25,8 @@ class AppState with ChangeNotifier {
     await RestApiClient.initFlutter();
     _apiClient = RestApiClient(
       options: RestApiClientOptions(baseUrl: config.baseUrl),
-      loggingOptions: const LoggingOptions(
-        logNetworkTraffic: true,
+      loggingOptions: LoggingOptions(
+        logNetworkTraffic: !isProd,
         request: true,
         requestBody: false,
         requestHeader: false,

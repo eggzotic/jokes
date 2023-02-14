@@ -4,9 +4,14 @@ import 'package:jokes/widgets/joke_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
+  // this disables debugPrint in production builds
+  const bool isProduction = bool.fromEnvironment('dart.vm.product');
+  if (isProduction) {
+    debugPrint = (String? message, {int? wrapWidth}) {};
+  }
   runApp(
     ChangeNotifierProvider(
-      create: (_) => AppState(),
+      create: (_) => AppState(isProd: isProduction),
       child: const MyApp(),
     ),
   );

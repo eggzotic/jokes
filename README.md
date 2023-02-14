@@ -19,11 +19,6 @@ https://eggzotic.software/apps/jokes/
 
 ## To-do
 
-- error popups
-  - when HTTP error status
-  - when response JSON error property populated
-  - special one if the too-many-requests code is received
-
 - "Share" a joke
 
 Richard Shepherd 2023
