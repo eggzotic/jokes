@@ -1,22 +1,24 @@
-import 'package:jokes/model/flag.dart';
 import 'package:jokes/model/joke_category.dart';
 import 'package:jokes/model/joke_type.dart';
+import 'package:jokes/model/flag.dart';
 
 class Event {}
 
-class FetchNewJokeEvent extends Event {}
+class JokeRequestSubmitEvent extends Event {}
 
-class JokeRequestToggleType extends Event {
+class JokeRequestToggleTypeEvent extends Event {
   final JokeType type;
-  JokeRequestToggleType(this.type);
+  JokeRequestToggleTypeEvent(this.type);
 }
 
-class JokeRequestToggleCategory extends Event {
+class JokeRequestToggleCategoryEvent extends Event {
   final JokeCategory category;
-  JokeRequestToggleCategory(this.category);
+  JokeRequestToggleCategoryEvent(this.category);
 }
 
-class JokeRequestToggleFlag extends Event {
+class JokeRequestToggleFlagEvent extends Event {
   final Flag flag;
-  JokeRequestToggleFlag(this.flag);
+  JokeRequestToggleFlagEvent(this.flag);
 }
+
+class AcknowledgeFetchErrorEvent extends Event {}

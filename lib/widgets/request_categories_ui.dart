@@ -28,7 +28,7 @@ class RequestCategoriesUi extends StatelessWidget {
                     label: Text(c.label),
                     selected: appState.jokeState.request.categories.includes(c),
                     onSelected: (_) => appState.sendEvent(
-                      event: JokeRequestToggleCategory(c),
+                      event: JokeRequestToggleCategoryEvent(c),
                     ),
                   ),
                 )

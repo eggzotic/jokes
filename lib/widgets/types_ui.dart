@@ -20,14 +20,14 @@ class TypesUi extends StatelessWidget {
             label: const Text('One-liners'),
             selected: appState.jokeState.request.types.oneLiners,
             onSelected: (_) => appState.sendEvent(
-              event: JokeRequestToggleType(JokeType.single),
+              event: JokeRequestToggleTypeEvent(JokeType.single),
             ),
           ),
           FilterChip(
             label: const Text('Two-parts'),
             selected: appState.jokeState.request.types.twoParts,
             onSelected: (_) => appState.sendEvent(
-              event: JokeRequestToggleType(JokeType.twoPart),
+              event: JokeRequestToggleTypeEvent(JokeType.twoPart),
             ),
           ),
         ],

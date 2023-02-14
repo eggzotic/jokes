@@ -1,6 +1,7 @@
 import 'package:jokes/model/joke_type.dart';
+import 'package:jokes/model/query_component.dart';
 
-class JokeTypes {
+class JokeTypes implements QueryComponent {
   JokeTypes();
   final Set<JokeType> _types = JokeType.values.toSet();
   void _addType(JokeType type) {
@@ -24,6 +25,7 @@ class JokeTypes {
   bool get twoParts => _types.contains(JokeType.twoPart);
   bool get isDefault => _types.length == JokeType.values.length;
 
+  @override
   Map<String, dynamic> get queryParams {
     final Map<String, dynamic> map = {};
     if (isDefault) return map;

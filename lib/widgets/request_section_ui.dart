@@ -42,7 +42,7 @@ class RequestSectionUi extends StatelessWidget {
                     child: Text('Make me laugh${again ? ' (again!)' : ''}')),
             onTap: isBusy
                 ? null
-                : () => appState.sendEvent(event: FetchNewJokeEvent()),
+                : () => appState.sendEvent(event: JokeRequestSubmitEvent()),
           ),
         ),
       ],

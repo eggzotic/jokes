@@ -18,7 +18,7 @@ class JokeCategoriesUi extends StatelessWidget {
             .map(
               (f) => FilterChip(
                 label: Text(f.label),
-                selected: joke.flags.isBlackListed(f),
+                selected: joke.flags.hasFlag(f),
                 onSelected: null,
               ),
             )

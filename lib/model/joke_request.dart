@@ -1,11 +1,11 @@
-import 'package:jokes/model/flags.dart';
 import 'package:jokes/model/joke_categories.dart';
 import 'package:jokes/model/joke_types.dart';
+import 'package:jokes/state/flag_state.dart';
 
 class JokeRequest {
   JokeRequest();
   final categories = JokeCategories();
-  final blackList = Flags();
+  final blackList = FlagState();
   final types = JokeTypes();
   //
   String get endPoint => categories.toParams;

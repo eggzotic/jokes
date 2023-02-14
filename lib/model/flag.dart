@@ -1,5 +1,3 @@
-import 'package:collection/collection.dart';
-
 enum Flag {
   nsfw('NSFW'),
   religious('Religious'),
@@ -10,7 +8,4 @@ enum Flag {
 
   const Flag(this.label);
   final String label;
-
-  static Flag? fromText(String? text) =>
-      values.firstWhereOrNull((v) => v.name == text?.toLowerCase());
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Config {
   final appName = 'Jokes';
-  final appVersion = '1.2.0';
+  final appVersion = '1.3.0';
   final appIcon = Icons.tag_faces_outlined;
   final sourceRepo = 'https://github.com/eggzotic/jokes';
   final appAuthor = 'Richard Shepherd, 2023';

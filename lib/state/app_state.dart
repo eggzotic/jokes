@@ -47,15 +47,17 @@ class AppState with ChangeNotifier {
   //
   /// Send an Event to the App State
   void sendEvent({required Event event}) {
-    if (event is FetchNewJokeEvent) {
+    if (event is JokeRequestSubmitEvent) {
       _jokeState.fetch();
       return;
-    } else if (event is JokeRequestToggleType) {
+    } else if (event is JokeRequestToggleTypeEvent) {
       _jokeState.request.types.toggleType(event.type);
-    } else if (event is JokeRequestToggleCategory) {
+    } else if (event is JokeRequestToggleCategoryEvent) {
       _jokeState.request.categories.toggleCategory(event.category);
-    } else if (event is JokeRequestToggleFlag) {
+    } else if (event is JokeRequestToggleFlagEvent) {
       _jokeState.request.blackList.toggleFlag(event.flag);
+    } else if (event is AcknowledgeFetchErrorEvent) {
+      _jokeState.clearError();
     } else {
       debugPrint('RLS Unknown event received: $event');
       return;

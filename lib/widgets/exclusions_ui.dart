@@ -26,7 +26,7 @@ class ExclusionsUi extends StatelessWidget {
                   selected:
                       appState.jokeState.request.blackList.isBlackListed(f),
                   onSelected: (_) => appState.sendEvent(
-                    event: JokeRequestToggleFlag(f),
+                    event: JokeRequestToggleFlagEvent(f),
                   ),
                 ),
               )

@@ -1,6 +1,10 @@
 import 'package:jokes/model/flags.dart';
 import 'package:jokes/model/joke.dart';
+import 'package:json_annotation/json_annotation.dart';
 
+part 'joke_2_part.g.dart';
+
+@JsonSerializable()
 class Joke2Part extends Joke {
   Joke2Part({
     required super.error,
@@ -17,22 +21,6 @@ class Joke2Part extends Joke {
   final String setup;
   final String delivery;
 
-  factory Joke2Part.fromMap(Map<String, dynamic> json) => Joke2Part(
-        error: json["error"],
-        category: json["category"],
-        type: json["type"],
-        setup: json["setup"],
-        delivery: json["delivery"],
-        flags: Flags.fromMap(json["flags"]),
-        safe: json["safe"],
-        id: json["id"],
-        lang: json["lang"],
-      );
-
-  @override
-  Map<String, dynamic> toMap() => {
-        ...super.toMap(),
-        "setup": setup,
-        "delivery": delivery,
-      };
+  factory Joke2Part.fromJson(Map<String, dynamic> json) =>
+      _$Joke2PartFromJson(json);
 }
