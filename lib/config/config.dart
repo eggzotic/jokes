@@ -13,4 +13,5 @@ class Config {
   final relayoutWidth = 610.0;
   final relayoutHeight = 500.0;
   final wideLayoutAspect = 1.75;
+  final prodUrl = 'https://eggzotic.software/apps/jokes/';
 }

@@ -40,6 +40,7 @@ dependencies:
   collection: ^1.17.1
   json_annotation: ^4.8.0
   flutter_dialogs: ^3.0.0
+  share_plus: ^6.3.1
 
 dev_dependencies:
   flutter_test:
