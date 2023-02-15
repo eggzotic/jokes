@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jokes/event/event.dart';
 import 'package:jokes/model/joke.dart';
 import 'package:jokes/model/joke_2_part.dart';
 import 'package:jokes/model/joke_single.dart';
@@ -41,7 +42,11 @@ class JokeTile extends StatelessWidget {
             text = 'Q: $textLine1. A: $textLine2';
           }
           text += '\n\nMore jokes at ${appState.config.prodUrl}';
-          await Share.share(text, subject: 'Joke for you');
+          try {
+            await Share.share(text, subject: 'Joke for you');
+          } catch (e) {
+            appState.sendEvent(event: ShareErrorEvent());
+          }
         },
       ),
       children: [

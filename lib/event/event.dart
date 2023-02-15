@@ -22,3 +22,5 @@ class JokeRequestToggleFlagEvent extends Event {
 }
 
 class AcknowledgeFetchErrorEvent extends Event {}
+
+class ShareErrorEvent extends Event {}
