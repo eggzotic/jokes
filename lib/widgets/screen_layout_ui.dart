@@ -12,29 +12,33 @@ class ScreenLayoutUi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appState = Provider.of<AppState>(context);
-    if (appState.jokeState.isError) {
-      final error = appState.jokeState.error!;
+    if (appState.isError) {
+      final error = appState.error!;
       WidgetsBinding.instance.addPostFrameCallback(
         (timeStamp) {
           showPlatformDialog(
             context: context,
+            androidBarrierDismissible: true,
             builder: (_) => BasicDialogAlert(
               title: const Text('Error'),
               content: Column(
                 children: [
-                  ListTile(
-                    title: Text(error.message),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(error.message),
                   ),
-                  ListTile(
-                    title: Text(error.additionalInfo),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(error.additionalInfo),
                   ),
                   if (error.internalError)
-                    const ListTile(
-                      title: Text("This was a server-error - don't stress it"),
+                    const Padding(
+                      padding: EdgeInsets.all(8),
+                      child: Text("This was a server-error - don't stress it"),
                     ),
-                  ListTile(
-                    title: Text('${error.code}'),
-                    subtitle: const Text('Error code'),
+                  Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text('Error code: ${error.code}'),
                   ),
                 ],
               ),
@@ -42,6 +46,7 @@ class ScreenLayoutUi extends StatelessWidget {
                 BasicDialogAction(
                   title: const Text('OK'),
                   onPressed: () => Navigator.of(context).pop(),
+                  iosIsDefaultAction: true,
                 )
               ],
             ),

@@ -32,7 +32,7 @@ class JokeTile extends StatelessWidget {
       subtitle: textLine2.isNotEmpty ? Text(textLine2) : null,
       leading: IconButton(
         icon: const Icon(Icons.ios_share_rounded),
-        onPressed: () {
+        onPressed: () async {
           debugPrint('Share pressed, for ID ${joke.id}');
           String text = '';
           if (isSingle) {
@@ -41,7 +41,7 @@ class JokeTile extends StatelessWidget {
             text = 'Q: $textLine1. A: $textLine2';
           }
           text += '\n\nMore jokes at ${appState.config.prodUrl}';
-          Share.share(text, subject: 'Joke for you');
+          await Share.share(text, subject: 'Joke for you');
         },
       ),
       children: [
